@@ -1,10 +1,14 @@
 package com.amonteiro.a2023_01_epsi
 
+import java.sql.Timestamp
+import java.time.Instant
+
 fun main() {
     var res = boulangerie(nbSan = 4)
     println(res)
-
+    val t = Timestamp.from(Instant.now())
 }
+
 
 fun boulangerie(nbCroi: Int = 0, nbBag: Int = 0, nbSan: Int=0) = nbCroi * PRICE_CROI + nbBag * PRICE_BAG + nbSan * PRICE_SAND
 
