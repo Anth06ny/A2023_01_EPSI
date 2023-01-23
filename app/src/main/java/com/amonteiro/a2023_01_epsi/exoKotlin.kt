@@ -4,9 +4,11 @@ import java.sql.Timestamp
 import java.time.Instant
 
 fun main() {
-    var res = boulangerie(nbSan = 4)
+    var res = boulangerie(5, nbSan=5)
     println(res)
-    val t = Timestamp.from(Instant.now())
+    var v :String? ="toto"
+
+    println(v?.uppercase() ?: "")
 }
 
 

@@ -27,3 +27,7 @@ data class WeatherBean(var name :String, var wind : WindBean, var main :TempBean
 data class TempBean(var temp :Double)
 data class WindBean(var speed :Double)
 
+/***** API RandomUser ***********/
+data class RandomUserBean(var name :String, var age : Int, var coord :CoordBean?)
+data class CoordBean (var phone:String?, var mail:String?)
+
