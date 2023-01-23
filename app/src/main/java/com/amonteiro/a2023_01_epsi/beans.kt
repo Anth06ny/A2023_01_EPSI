@@ -30,4 +30,3 @@ data class WindBean(var speed :Double)
 /***** API RandomUser ***********/
 data class RandomUserBean(var name :String, var age : Int, var coord :CoordBean?)
 data class CoordBean (var phone:String?, var mail:String?)
-
