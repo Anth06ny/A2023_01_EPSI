@@ -17,7 +17,21 @@ class MainActivity : AppCompatActivity() {
         //Afficher l'interface graphique
         setContentView(binding.root)
 
-        binding.rbLike.text = "toto"
+        binding.btValidate.setOnClickListener {
+            if(binding.rbLike.isChecked) {
+                binding.et.setText(binding.rbLike.text)
+            }
+            else if(binding.rbDislike.isChecked) {
+                binding.et.setText(binding.rbDislike.text)
+            }
+            binding.iv.setImageResource(R.drawable.baseline_flag_24)
+        }
+
+        binding.btCancel.setOnClickListener {
+            binding.et.setText("")
+            binding.rg.clearCheck() //décoche tous les radioButtons
+            binding.iv.setImageResource(R.drawable.baseline_delete_forever_24)
+        }
 
     }
 }
