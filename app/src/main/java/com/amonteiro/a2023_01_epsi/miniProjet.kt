@@ -5,7 +5,7 @@ fun main() {
 //    println("Il fait ${res.main.temp}° à ${res.name} avec un vent de ${res.wind.speed} km/h")
 
     repeat(10) {
-        val res = RequestUtils.loadRandomUser()
+        val res = RequestUtils.loadPeople()
 
         //var tel = "Aucun"
 //    if(res.coord!= null && res.coord?.phone !=null) {

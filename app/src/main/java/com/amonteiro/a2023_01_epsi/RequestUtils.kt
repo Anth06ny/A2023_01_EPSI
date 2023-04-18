@@ -9,26 +9,23 @@ object RequestUtils {
     val gson = Gson()
     val client = OkHttpClient()
 
-
-    fun loadRandomUser(): RandomUserBean {
-
-        //Réaliser la requête.
-        val json: String = sendGet("https://www.amonteiro.fr/api/randomuser")
-
-        //Parser le JSON avec le bon bean et GSON
-        val data : RandomUserBean = gson.fromJson(json, RandomUserBean::class.java)
-
-        //Retourner la donnée
-        return data
+    fun loadPeople(): RandomUserBean {
+        //requete
+        val json = sendGet("https://www.amonteiro.fr/api/randomuser")
+        //parser le json
+        val user = gson.fromJson(json, RandomUserBean::class.java)
+        //retourner le résultat
+        return user
     }
 
-    fun loadWeather(cityName:String): WeatherBean {
+
+    fun loadWeather(cityName: String): WeatherBean {
 
         //Réaliser la requête.
         val json: String = sendGet("https://api.openweathermap.org/data/2.5/weather?q=$cityName&appid=b80967f0a6bd10d23e44848547b26550&units=metric&lang=fr")
 
         //Parser le JSON avec le bon bean et GSON
-        val data : WeatherBean = gson.fromJson(json, WeatherBean::class.java)
+        val data: WeatherBean = gson.fromJson(json, WeatherBean::class.java)
 
         //Retourner la donnée
         return data
