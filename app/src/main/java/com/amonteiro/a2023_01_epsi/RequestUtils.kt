@@ -4,10 +4,26 @@ import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import okhttp3.Request
 
+fun main() {
+
+    val pokemon = RequestUtils.loadPokemon()
+    println("${pokemon.name} est de type ${pokemon.type}")
+
+}
+
+
 object RequestUtils {
 
     val gson = Gson()
     val client = OkHttpClient()
+
+    fun loadPokemon(): PokemonBean {
+        //requete
+        val json = sendGet("https://www.amonteiro.fr/api/pokemonN1")
+        //parser le json
+        //retourner le résultat
+        return gson.fromJson(json, PokemonBean::class.java)
+    }
 
     fun loadPeople(): RandomUserBean {
         //requete

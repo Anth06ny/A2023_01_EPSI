@@ -9,6 +9,7 @@ import com.amonteiro.a2023_01_epsi.databinding.ActivityMainBinding
 
 const val WEATHER_MENU_ID = 1
 const val PEOPLE_MENU_ID = 10
+const val POKEMON_MENU_ID = 11
 
 class MainActivity : AppCompatActivity() {
 
@@ -46,6 +47,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menu.add(0, WEATHER_MENU_ID, 0, "Météo")
         menu.add(0, PEOPLE_MENU_ID, 0, "People")
+        menu.add(0, POKEMON_MENU_ID, 0, "Pokemon")
 
         return super.onCreateOptionsMenu(menu)
     }
@@ -59,6 +61,10 @@ class MainActivity : AppCompatActivity() {
         }
         else if (item.itemId == PEOPLE_MENU_ID) {
             val intent = Intent(this, PeopleActivity::class.java)
+            startActivity(intent)
+        }
+        else if (item.itemId == POKEMON_MENU_ID) {
+            val intent = Intent(this, PokemonActivity::class.java)
             startActivity(intent)
         }
 

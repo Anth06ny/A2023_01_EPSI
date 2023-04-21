@@ -13,6 +13,9 @@
         android:theme="@style/Theme.A2023_01_EPSI"
         tools:targetApi="31">
         <activity
+            android:name=".PokemonActivity"
+            android:exported="false" />
+        <activity
             android:name=".PeopleActivity"
             android:exported="false" />
         <activity

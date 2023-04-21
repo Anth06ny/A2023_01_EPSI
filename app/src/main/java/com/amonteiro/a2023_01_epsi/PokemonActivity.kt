@@ -1,30 +1,31 @@
 package com.amonteiro.a2023_01_epsi
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import androidx.core.view.isVisible
-import com.amonteiro.a2023_01_epsi.databinding.ActivityWeatherBinding
+import com.amonteiro.a2023_01_epsi.databinding.ActivityPeopleBinding
 import kotlin.concurrent.thread
 
-class WeatherActivity : AppCompatActivity() {
+class PokemonActivity : AppCompatActivity() {
 
-    val binding by lazy { ActivityWeatherBinding.inflate(layoutInflater) }
+    //créer l'interface
+    val binding by lazy { ActivityPeopleBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         binding.btLoad.setOnClickListener {
-
             binding.progressBar.isVisible = true
 
             thread {
-                try {
-                    val user = RequestUtils.loadPeople()
 
+                try {
+                    val pokemon = RequestUtils.loadPokemon()
 
                     runOnUiThread {
-                        binding.textView.text = user.toString()
+                        binding.tv.text = "${pokemon.name} est de type ${pokemon.type}"
+
                         binding.progressBar.isVisible = false
                     }
                 }
@@ -33,12 +34,11 @@ class WeatherActivity : AppCompatActivity() {
 
                     runOnUiThread {
                         //Mise à jour graphique
-                        binding.textView.text = "Une erreur est survenue ${e.message}"
+                        binding.tv.text = "Une erreur est survenue ${e.message}"
                         binding.progressBar.isVisible = false
                     }
                 }
             }
-
         }
     }
 }
